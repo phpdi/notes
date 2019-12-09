@@ -1,0 +1,13 @@
+break
+case,chan,const,continue
+default,defer,
+else
+func,fallthrough,for
+go,goto
+interface,if,import
+map
+package,
+range,return
+select,struct,switch
+type
+var
