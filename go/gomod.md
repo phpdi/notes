@@ -3,6 +3,8 @@
 >GO111MODULE=on go命令开启模块支持,此时执行go get 命令,所有依赖都会下到$GOPATH/pkg/mod ,go依赖查找也只会到$GOPATH/pkg/mod进行查找
 >GO111MODULE=auto 默认值,go命令根据当前目录启用或禁用模块支持。仅当当前目录位于$GOPATH/src之外并且其本身包含go.mod文件或位于包含go.mod文件的目录下时，才启用模块支持。简而言之,就是项目包含go.mod文件时会开启模块支持
 
+
+> 在Go 1.13中，module mode优先级提升，GO111MODULE的默认值依然为auto，但在这个auto下，无论是在GOPATH/src下还是GOPATH之外的repo中，只要目录下有go.mod，go编译器都会使用go module来管理依赖。
 ### go mod命令
 ```
 
