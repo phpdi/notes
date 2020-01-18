@@ -66,7 +66,7 @@ Supervisor是用Python开发的一套通用的进程管理程序，能将一个�
 sudo apt-get install supervisor
 ```
 	
-###  java 
+### java 
 	
 ```bash
 java -version 	#输出
@@ -87,6 +87,7 @@ sudo apt install jmeter
 
 ### golang 环境安装
 1.到[官网](https://golang.org/dl/)下载最新的golang包，需要翻墙
+
 2.将包解压到/usr/local下
 ```bash
 sudo tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz
@@ -98,12 +99,12 @@ export PATH=$PATH:/usr/local/go/bin
 
 source ~/.profile
 ```
-4. go version 测试是否安装成功
+4.go version 测试是否安装成功
 
-### Wireshark
-抓包工具
-
+### Wireshark 抓包工具
+```
 sudo add-apt-repository ppa:wireshark-dev/stable 
 sudo apt update
 sudo apt -y install wireshark
+```
 
