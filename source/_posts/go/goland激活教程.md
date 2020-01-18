@@ -5,9 +5,11 @@
 转载自[免费获取 JetBrains 全系产品正版 License](https://www.toutiao.com/a6744540170936123916/)
 
 ### 项目要求
-要申请获取免费的正版 License，只有一个前提条件，那就是你需要有自己的开源项目;
+要申请获取免费的正版 License，有两个条件;
+* 你自己的项目
+* 项目必须在目前三个月内保持活跃的提交记录
+> 对于项目的内容、star 之类的目前并没有什么硬性要求
 
-对于项目的内容、star 之类的目前并没有什么硬性要求,唯一要求是项目必须在目前三个月内保持活跃
 ### 给项目添加 License
 首先在申请之前，我们需要给自己的开源项目添加 License，后面在申请的时候会使用到。在我们的项目 GitHub 页面上点击”Create new file”，然后输入 LICENSE， GitHub 会给我们提供一些 LICENSE 的模板，我们可以根据模板来选择合适的开源 LICENSE，比如我这里就选择的是”Apache License 2.0”协议
 ![](goland激活教程/527bcd19ed0e4dc2a2b0ea16701efab0.jpeg)
