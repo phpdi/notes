@@ -71,7 +71,7 @@ hotfix分支基于Master分支创建，开发完后需要合并回Master和Devel
 
 1. 创建develop分支
 ```
-git branch develop
+git branch  develop
 git push -u origin develop   
 ```
 

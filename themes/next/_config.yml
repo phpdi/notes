@@ -126,7 +126,7 @@ menu:
   tags: /tags/ || tags
   about: /about/ || user
   #schedule: /schedule/ || calendar
-  sitemap: /baidusitemap.xml || sitemap
+#  sitemap: /baidusitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
 
 # Enable / Disable menu icons / item badges.
