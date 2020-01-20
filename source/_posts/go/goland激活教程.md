@@ -1,4 +1,9 @@
-
+---
+categories: 
+- go
+tags:
+- goland激活
+---
 提供三种方式进行激活
 ## 申请使用License（推荐）
 转载自[免费获取 JetBrains 全系产品正版 License](https://www.toutiao.com/a6744540170936123916/)

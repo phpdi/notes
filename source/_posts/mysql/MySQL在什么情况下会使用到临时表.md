@@ -1,3 +1,9 @@
+---
+categories: 
+- mysql
+tags:
+- mysql临时表
+---
 
 MySQL在执行SQL查询时可能会用到临时表，一般情况下，用到临时表就意味着性能较低。临时表存储，MySQL临时表分为“内存临时表”和“磁盘临时表”，
 其中内存临时表使用MySQL的MEMORY存储引擎，磁盘临时表使用MySQL的MyISAM存储引擎；

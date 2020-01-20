@@ -1,3 +1,10 @@
+---
+categories: 
+- nginx
+tags:
+- 自动负载均衡
+- Nginx
+---
 ## 基于Docker + Consul + Nginx + Consul-Template + Registrator的服务自动负载均衡实现 
 本文搭建的consul为单节点版本 ， 集群版 [参考文章1](https://www.jianshu.com/p/fa41434d444a)
 

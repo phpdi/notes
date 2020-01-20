@@ -1,4 +1,10 @@
+---
+categories: 
+- mysql
 
+tags:
+- mysql主从同步
+---
 ## 拉取最新版mysql镜像
 ```bash
 docker pull mysql 

@@ -1,3 +1,11 @@
+---
+categories: 
+- go
+
+tags:
+- goland面试题
+---
+
 ## golang 调度
 * CSP(通信顺序进程)
 * 顺序一致性模型 

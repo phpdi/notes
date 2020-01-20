@@ -1,3 +1,10 @@
+---
+categories: 
+- linux
+tags:
+- linux软件安装
+---
+
 ### chrome
 ```bash
 sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/ &&

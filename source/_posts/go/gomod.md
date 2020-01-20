@@ -1,3 +1,10 @@
+---
+categories: 
+- go
+tags:
+- gomod
+---
+
 ## 环境变量GO111MODULE
 >GO111MODULE=off go命令从不使用新模块支持。使用GOPATH模式(查找vendor目录和GOPATH路径下的依赖)
 >GO111MODULE=on go命令开启模块支持,此时执行go get 命令,所有依赖都会下到$GOPATH/pkg/mod ,go依赖查找也只会到$GOPATH/pkg/mod进行查找
