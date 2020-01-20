@@ -5,6 +5,7 @@ wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key a
 sudo apt-get update &&
 sudo apt-get install google-chrome-stable
 ```
+<!--more-->
 ### yarn
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -

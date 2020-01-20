@@ -1,8 +1,8 @@
 
 提供三种方式进行激活
-<!--more-->
 ## 申请使用License（推荐）
 转载自[免费获取 JetBrains 全系产品正版 License](https://www.toutiao.com/a6744540170936123916/)
+<!--more-->
 
 ### 项目要求
 要申请获取免费的正版 License，有两个条件;
