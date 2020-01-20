@@ -124,7 +124,7 @@ menu:
   archives: /archives/ || archive
   categories: /categories/ || th
   tags: /tags/ || tags
-#  about: /about/ || user
+  about: /about/ || user
   #schedule: /schedule/ || calendar
   sitemap: /baidusitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
