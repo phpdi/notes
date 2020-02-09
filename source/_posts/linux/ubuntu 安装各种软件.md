@@ -6,6 +6,11 @@ tags:
 ---
 
 ### chrome
+
+#### deb包
+http://www.ubuntuchrome.com/
+
+#### 脚本安装
 ```bash
 sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/ &&
 wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add - &&
@@ -13,6 +18,7 @@ sudo apt-get update &&
 sudo apt-get install google-chrome-stable
 ```
 <!--more-->
+
 ### yarn
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -21,16 +27,10 @@ sudo apt-get update && sudo apt-get install yarn
 ```
 ### npm
 ```bash
-sudo apt install nodejs
 sudo apt install npm
-#我在安装npm的过程中提示缺少npde-gyp的依赖，尝试加-f 参数来递归安装依赖，但是不行，最后还是一个一个的去安装的。
-
-sudo npm config set registry https://registry.npm.taobao.org #设置镜像
-sudo npm install npm@latest -g  #升级npm为最新版本
 
 sudo npm install -g n #通过n模块安装指定的nodejs
 sudo n stable #安装官方稳定版本
-sudo n 8.* #安装指定版本的nodejs
 
 ```
 
@@ -60,6 +60,7 @@ wget http://soft.vpser.net/lnmp/lnmp1.5.tar.gz -cO lnmp1.5.tar.gz && tar zxf lnm
 cd /usr/local && https://github.com/XX-net/XX-Net.git
 sudo apt-get install miredo #开启ipv6
 ```
+> [需要的crx](https://crxdl.com/)
 ### qq
 ```bash
 cd /usr/local/ && sudo git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git && cd deepin-wine-ubuntu && ./install
@@ -104,6 +105,7 @@ sudo tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz
 ```bash
 sudo vim  ~/.profile
 export PATH=$PATH:/usr/local/go/bin
+export GOROOT=/usr/local/go
 
 source ~/.profile
 ```
@@ -116,3 +118,34 @@ sudo apt update
 sudo apt -y install wireshark
 ```
 
+### Docker
+
+#### docker
+```
+sudo apt install docker.io
+sudo gpasswd -a $USER docker 
+newgrp docker
+```
+#### 更换docker远程镜像
+```bash
+sudo vim /etc/docker/daemon.json
+
+{
+  "registry-mirrors": ["https://9lrfffi7.mirror.aliyuncs.com"]
+}
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+#### docker-compose
+```
+sudo curl -L --fail https://github.com/docker/compose/releases/download/1.23.1/run.sh -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+```
+
+#### mysql 
+```
+docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
+```
