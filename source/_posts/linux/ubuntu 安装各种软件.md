@@ -149,3 +149,12 @@ docker-compose --version
 ```
 docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
 ```
+
+#### redis
+
+```
+docker run --name redis -p 6379:6379 -d --restart=always redis:latest redis-server --appendonly no --requirepass "123456"
+
+# appendonly 是否开启数据持久化
+# requirepass 用户名密码
+```
