@@ -158,3 +158,47 @@ docker run --name redis -p 6379:6379 -d --restart=always redis:latest redis-serv
 # appendonly 是否开启数据持久化
 # requirepass 用户名密码
 ```
+#### consul
+```
+docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 -p 8600:8600 consul agent -server -bootstrap-expect 1 -ui -bind=0.0.0.0 -client=0.0.0.0
+
+8500 http 端口，用于 http 接口和 web ui
+8300 server rpc 端口，同一数据中心 consul server 之间通过该端口通信
+8301 serf lan 端口，同一数据中心 consul client 通过该端口通信
+8302 serf wan 端口，不同数据中心 consul server 通过该端口通信
+8600 dns 端口，用于服务发现
+-bbostrap-expect 2: 集群至少两台服务器，才能选举集群leader
+-ui：运行 web 控制台
+-bind： 监听网口，0.0.0.0 表示所有网口，如果不指定默认为127.0.0.1，则无法和容器通信
+-client ： 限制某些网口可以访问
+
+```
+#### kafak
+```
+docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=192.168.11.36 --env ADVERTISED_PORT=9092 -d spotify/kafka
+```
+
+#### etcd
+```
+# 单节点
+docker run -d  -p 2379:2379 -p 2380:2380 --name etcd quay.io/coreos/etcd /usr/local/bin/etcd -name qf2200-client0  -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379
+
+# web管理界面 
+docker run -it --rm -p 8080:8080 -v ./config.default.ini:/app/conf/config.default.ini  --name e3w soyking/e3w
+
+# config.default.ini
+[app]
+port=8080
+auth=false
+
+[etcd]
+root_key=
+dir_value=
+addr=192.168.11.19:2379,192.168.11.19:22379,192.168.11.19:32379
+username=
+password=
+cert_file=
+key_file=
+ca_file=
+
+```
