@@ -61,6 +61,19 @@ cd /usr/local && https://github.com/XX-net/XX-Net.git
 sudo apt-get install miredo #开启ipv6
 ```
 > [需要的crx](https://crxdl.com/)
+#### ubuntu终端使用xx_net
+```
+sudo  apt install privoxy
+
+#XX-Net默认的端口是8087，对https代理  ,XX-Net默认的端口是8087，对http代理
+export https_proxy=127.0.0.1:8087
+export http_proxy=127.0.0.1:8087 
+
+# 测试
+curl https://www.google.com
+```
+
+
 ### qq
 ```bash
 cd /usr/local/ && sudo git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git && cd deepin-wine-ubuntu && ./install
@@ -145,6 +158,16 @@ sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
 
+#### docker-machine
+[官方网站](https://docs.docker.com/machine/install-machine/)
+```
+base=https://github.com/docker/machine/releases/download/v0.16.0 &&
+  curl -L $base/docker-machine-$(uname -s)-$(uname -m) >/tmp/docker-machine &&
+  sudo mv /tmp/docker-machine /usr/local/bin/docker-machine &&
+  chmod +x /usr/local/bin/docker-machine
+
+```
+
 #### mysql 
 ```
 docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
@@ -182,23 +205,5 @@ docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=192.168.11.36 --env A
 ```
 # 单节点
 docker run -d  -p 2379:2379 -p 2380:2380 --name etcd quay.io/coreos/etcd /usr/local/bin/etcd -name qf2200-client0  -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379
-
-# web管理界面 
-docker run -it --rm -p 8080:8080 -v ./config.default.ini:/app/conf/config.default.ini  --name e3w soyking/e3w
-
-# config.default.ini
-[app]
-port=8080
-auth=false
-
-[etcd]
-root_key=
-dir_value=
-addr=192.168.11.19:2379,192.168.11.19 :22379,192.168.11.19:32379
-username=
-password=
-cert_file=
-key_file=
-ca_file=
 
 ```
