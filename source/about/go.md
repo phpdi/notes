@@ -119,9 +119,9 @@
 ## 技能清单
 以下均为我熟练使用的技能
 
-- 开发环境：linux
+- 开发环境：Linux
 - Web开发：Go/PHP
-- Web框架：Gin/Beego/Laravel/Yii/ThinkPHP/LazyPHP
+- Web框架：Gin/Beego/Laravel/Yii/ThinkPHP
 - 数据库相关：MySQL/PDO/SQLite/Redis/Memcache
 - 版本管理、文档和自动化部署工具：Svn/Git/eoLinker/Composer/Gomod
 - 容器相关：Docker/docker-compose/docker-swarm

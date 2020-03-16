@@ -176,7 +176,8 @@ docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456
 #### redis
 
 ```
-docker run --name redis -p 6379:6379 -d --restart=always redis:latest redis-server --appendonly no --requirepass "123456"
+docker run --name redis -p 6379:6379 -d --restart=always -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf  redis:latest redis-server /etc/redis/redis.conf --appendonly yes --requirepass "123456"
+docker run --name redis -p 6380:6379 -d --restart=always -v /usr/local/docker/redis/redis-slave.conf:/etc/redis/redis.conf  redis:latest redis-server /etc/redis/redis.conf --appendonly yes --requirepass "123456"
 
 # appendonly 是否开启数据持久化
 # requirepass 用户名密码
@@ -206,4 +207,9 @@ docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=192.168.11.36 --env A
 # 单节点
 docker run -d  -p 2379:2379 -p 2380:2380 --name etcd quay.io/coreos/etcd /usr/local/bin/etcd -name qf2200-client0  -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379
 
+```
+
+## nohup
+```
+nohup ./lwyfront >/dev/null 2>log &
 ```
