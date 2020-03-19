@@ -143,7 +143,7 @@ tag 是某个commit id的别名
 ### 分支
 * git checkout -b dev #创建并切换到dev分支
 * git branch --set-upstream-to=origin/dev dev #将远程的dev分支与本地的dev分支进行关联
-* git checkout -b dev origin/dev #创建并切换到dev分支并与远程dev分支关联
+* git checkout -b dev origin/dev #创建并切换到dev分支并与远程dev分支关联(直接拉取远程分支)
 * git checkout master #切换到master分支
 * git merge --no-ff -m '合并dev分支' dev # 禁用快进方式合并分支
 * git branch -d feature-vulcan #删除一个已经合并过的分支
