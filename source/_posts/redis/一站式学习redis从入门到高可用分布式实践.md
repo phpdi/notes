@@ -338,6 +338,20 @@ replica-read-only yes
 
 # 第7章 Redis sentine (哨兵)
 
+## 简介
+Redis Sentinel为Redis提供了很高的可用性，在实践中，这意味着你可以部署一个可以解决非人为干预导致节点故障的Redis集群系统。Redis Sentinel还提供了其他的功能：如监控，通知和客户端配置服务的提供方。下面列出来了Redis Sentinel的功能列表：  
+* 监控：Sentinel能够监控master节点或slave节点是否处于按照预期工作的状态。
+* 通知：Sentinel能够通过api通知系统管理原，其他的计算机程序，Redis实例运行过程中发生了错误。
+* 自动故障转移：如果Redis的master节点出现问题，Sentinel能够启动一个故障转移处理，该处理会将一个slave节点提升为master节点，其他的slave节点则会自动配置成新的master节点的slave节点，如果原来的master重新正常启动后，也会成为该新Master的slave节点。
+* 客户端配置提供者：Sentinel可作为客户端服务发现的一个权威来源，客户端通过连接到Sentinel来请求当前的Redis Master节点，如果Master节点发生故障，Sentinel将会提供新的master地址。
+
+Redis Sentinel 是一个分布式系统， 你可以在架构中运行多个 Sentinel 进程，这些进程通过相互通讯来判断一个主服务器是否断线，以及是否应该执行故障转移。
+在配置Redis Sentinel时，至少需要有1个Master和1个Slave。当Master失效后,Redis Sentinel会报出失效警告，并使用投票协议（agreement protocols）
+来决定是否执行自动故障迁移， 以及选择哪个从服务器作为新的主服务器，并提供读写服务;当失效的Master恢复后，Redis Sentinel会自动识别，
+将Master自动转换为Slave并完成数据同步。通过Redis Sentinel可以实现Redis零手工干预并且短时间内进行M-S切换，减少业务影响时间。  
+
+虽然 Redis Sentinel 释出为一个单独的可执行文件 redis-sentinel ， 但实际上它只是一个运行在特殊模式下的 Redis 服务器， 你可以在启动一个普通 Redis 服务器时通过给定 --sentinel 选项来启动 Redis Sentinel。
+
 ## 主从复制高可用的问题
 * 手动故障转移
 * 写能力和存储能力受限
@@ -388,6 +402,16 @@ sentinel down-after-millseconds mymaster 30000
 sentinel parallel-syncs mymaster 1
 sentinel failover-timeout mymaster 180000
 ```
+## sentinel中的3个定时任务
+### 每10秒每个sentinel对master和slave 执行info
+* 发现slave节点
+* 确认主从关系
+### 每两秒每个sentinel通过master节点的channel交换信息（pub/sub）
+* 通过 _sentinel_:hello 频道交换信息
+* 交换对节点的“看法”和自身信息
+
+### 每1秒每个sentinel对其他sentinel和redis进ping
+* 心跳检测，失败判定依据
 
 ## 客户端连接
 
