@@ -148,7 +148,7 @@ tag 是某个commit id的别名
 * git merge --no-ff -m '合并dev分支' dev # 禁用快进方式合并分支
 * git branch -d feature-vulcan #删除一个已经合并过的分支
 * git branch -D feature-vulcan #删除一个没有合并国的分支
-* git push origin –delete branchName # 删除远程分支
+* git push origin --delete branchName # 删除远程分支
 * git remote prune origin #删除所有远端已经删除本地仍然存在的分支,本地未推送到远端的分支不会被删除
 
 ### 标签
