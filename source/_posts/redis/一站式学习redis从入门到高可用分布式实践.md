@@ -419,3 +419,45 @@ sentinel failover-timeout mymaster 180000
 
 ## 常见开发运维问题
 
+##  总结
+* Redis Sentinel 的Sentinel节点数应该大于等于3且最好为奇数
+* Redis Sentinel 中的数据节点与普通数据节点没有区别
+* 客户端初始化时连接的是Sentinel节点集合，不再是具体的Redis节点，但Sentinel只是配置中心而不是代理
+* Redis Sentinel 通过三个定时任务实现了Sentinel节点对于主节点、从节点、其余Sentinel节点的监控
+* Redis Sentinel 在对节点做失败判定时分为主观下线和客观下线
+* 看懂Redis Sentinel 故障转移日志对于Redis Sentinel以及排查问题非常有帮助
+* Redis Sentinel 实现读写分离高可用可以依赖Sentinel节点的消息通知，获取Redis数据节点的状态变化
+
+
+# 第8章 Redis Cluster
+
+## 数据分布概论
+
+### 数据分布对比
+|分布方式|特点|典型产品|
+|:---|:---|:---|
+|哈希分布|数据分散度高键值分布业务无关，无法顺序访问，支持批量操作|一致性哈希Memcache,Redis cluster,其他缓存产品|
+|顺序分布|数据分散度易倾斜，键值业务相关，可顺序访问，支持批量操作|BigTable HBase|
+
+### 哈希分布方式
+#### 节点取余分区
+* 客户端分片：哈希+取余
+* 节点伸缩： 数据节点变化，导致数据迁移
+* 迁移数量和添加节点数量有关：建议翻倍扩容
+#### 一致性哈希分区
+* 客户端分片：哈希+顺时针（优化取余）
+* 节点伸缩： 只影响临近节点，但是还是有数据迁移
+* 翻倍伸缩： 保证最小迁移数据和负载均衡
+
+#### 虚拟槽分区
+* 预设虚拟槽：每个槽映射一个数据子集，一般比节点数大
+* 良好的哈希函数：例如CRC16
+* 服务端管理节点、槽、数据 例如：Redis Cluster
+
+## Cluster节点主要配置
+```
+cluster-enabled yes
+cluster-node-timeout 15000
+cluster-config-file "nodes.conf"
+cluster-require-full-coverage yes
+```
