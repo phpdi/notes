@@ -74,11 +74,11 @@ curl https://www.google.com
 ```
 
 
-### qq
+### Tim
 ```bash
-cd /usr/local/ && sudo git clone https://github.com/wszqkzqk/deepin-wine-ubuntu.git && cd deepin-wine-ubuntu && ./install
+cd /usr/local/ && sudo git clone https://gitee.com/wszqkzqk/deepin-wine-for-ubuntu.git && cd deepin-wine-for-ubuntu && ./install.sh
 sudo apt-get install -f # 如果提示依赖,执行这个
-wget https://gitee.com/wszqkzqk/deepin-wine-containers-for-ubuntu/raw/master/deepin.com.qq.im_8.9.19983deepin23_i386.deb #qq 
+wget https://mirrors.aliyun.com/deepin/pool/non-free/d/deepin.com.qq.office/deepin.com.qq.office_2.0.0deepin4_i386.deb   #tim 
 ```
 
 ### supervisor(进程管理工具)  
@@ -172,7 +172,10 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 ```
 docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
 ```
-
+#### mysql-workbench
+```
+sudo apt-get install mysql-workbench
+```
 #### redis
 
 ```
