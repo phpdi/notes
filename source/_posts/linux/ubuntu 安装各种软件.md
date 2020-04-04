@@ -124,6 +124,23 @@ source ~/.profile
 ```
 4.go version 测试是否安装成功
 
+### proto 安装
+1. 下载protoc包
+```
+https://github.com/protocolbuffers/protobuf/releases/tag/v3.11.4
+```
+2. 解压
+```
+sudo unzip protoc-3.11.4-linux-x86_64.zip -d /usr/local/
+```
+3.  protoc-gen-go 编译插件
+```
+ go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
+> protoc --go_out=plugins=grpc:. route_guide.proto
+
+
 ### Wireshark 抓包工具
 ```
 sudo add-apt-repository ppa:wireshark-dev/stable 
@@ -149,6 +166,7 @@ sudo vim /etc/docker/daemon.json
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
+docker info
 ```
 
 #### docker-compose
