@@ -124,7 +124,7 @@ source ~/.profile
 ```
 4.go version 测试是否安装成功
 
-### proto 安装
+### protoc 安装
 1. 下载protoc包
 ```
 https://github.com/protocolbuffers/protobuf/releases/tag/v3.11.4
