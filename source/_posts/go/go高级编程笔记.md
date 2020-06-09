@@ -27,3 +27,32 @@
 * 素数筛
 * 并发的安全退出
 * 通过Context包,实现Goroutine安全退出
+
+
+# 第5章 Go和Web
+## 哪些事情适合在中间件中做
+```
+compress.go
+  => 对http的响应体进行压缩处理
+heartbeat.go
+  => 设置一个特殊的路由，例如/ping，/healthcheck，用来给负载均衡一类的前置服务进行探活
+logger.go
+  => 打印请求处理处理日志，例如请求处理时间，请求路由
+profiler.go
+  => 挂载pprof需要的路由，如`/pprof`、`/pprof/trace`到系统中
+realip.go
+  => 从请求头中读取X-Forwarded-For和X-Real-IP，将http.Request中的RemoteAddr修改为得到的RealIP
+requestid.go
+  => 为本次请求生成单独的requestid，可一路透传，用来生成分布式调用链路，也可用于在日志中串连单次请求的所有逻辑
+timeout.go
+  => 用context.Timeout设置超时时间，并将其通过http.Request一路透传下去
+throttler.go
+  => 通过定长大小的channel存储token，并通过这些token对接口进行限流
+```
+
+##  常见的流量限制手段
+1.漏桶是指我们有一个一直装满了水的桶，每过固定的一段时间即向外漏一滴水。如果你接到了这滴水，那么你就可以继续服务请求，如果没有接到，那么就需要等待下一滴水。  
+
+2.令牌桶则是指匀速向桶中添加令牌，服务请求时需要从桶中获取令牌，令牌的数目可以按照需要消耗的资源进行相应的调整。如果没有令牌，可以选择等待，或者放弃。  
+
+实际应用中令牌桶应用较为广泛，开源界流行的限流器大多数都是基于令牌桶思想的。并且在此基础上进行了一定程度的扩充，比如github.com/juju/ratelimit  
