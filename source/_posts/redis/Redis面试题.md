@@ -1,8 +1,17 @@
+---
+categories: 
+- redis
+tags:
+- redis面试题
+---
+
+
 ## 使用Redis有哪些好处
 * 速度快，因为数据存在内存中，类似于HashMap，HashMap的优势就是查找和操作的时间复杂度都是O(1)
 * 支持丰富数据类型，支持string，list，set，sorted set，hash
 * 支持事务，操作都是原子性，所谓的原子性就是对数据的更改要么全部执行，要么全部不执行
 * 丰富的特性：可用于缓存，消息，按key设置过期时间，过期后将会自动删除
+<!--more-->
 
 ## redis相比memcached有哪些优势
 * memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型

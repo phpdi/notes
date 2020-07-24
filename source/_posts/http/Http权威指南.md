@@ -1,9 +1,16 @@
+
+---
+categories: 
+- http
+---
+
 # 第1章 HTTP概述
 ## 资源
 ### 媒体类型
 * MIME(Multipurpose Internet Mail Extension,多用途英特网邮件扩展)
 * Web服务器回味所有的HTTP对象数据附加一个MIME类型，以告知Web浏览器该如何处理该对象
 * Content-Type:image/jpeg ,“image/jpeg”为MIME类型
+<!--more-->
 
 ### URI
 * URI(Uniform Resource Identifier,统一资源标识符)

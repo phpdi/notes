@@ -1,3 +1,11 @@
+
+---
+categories: 
+- etcd
+tags:
+- etcd搭建
+---
+
 ## etcd 启动参数说明
 * -name：方便理解的节点名称，默认为 default，在集群中应该保持唯一，可以使用 hostname
 * -data-dir：服务运行数据保存的路径，默认为 ${name}.etcd
@@ -12,6 +20,7 @@
 * -initial-cluster-state：新建集群的时候，这个值为 new；假如已经存在的集群，这个值为existing
 * -initial-cluster-token：创建集群的token，这个值每个集群保持唯一。这样的话，如果你要重新创建集群，即使配置和之前一样，也会再次生成新的集群和节点 uuid；否则会导致多个集群之间的冲突，造成未知的错误
 
+<!--more-->
 
 ## 单机版
 ```

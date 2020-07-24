@@ -1,3 +1,11 @@
+
+---
+categories: 
+- go
+tags:
+- grpc
+---
+
 # grpc笔记
 
 ## 安装编译工具
@@ -11,6 +19,8 @@ sudo unzip protoc-3.11.4-linux-x86_64.zip -d /usr/local/
 ```
 go get -u github.com/golang/protobuf/protoc-gen-go
 ```
+<!--more-->
+
 
 ### 编译命令
 Protobuf的protoc编译器是通过插件机制实现对不同语言的支持。比如protoc命令出现--xxx_out格式的参数，那么protoc将首先查询是否有内置的xxx插件，如果没有内置的xxx插件那么将继续查询当前系统中是否存在protoc-gen-xxx命名的可执行程序，最终通过查询到的插件生成代码。对于Go语言的protoc-gen-go插件来说，里面又实现了一层静态插件系统。比如protoc-gen-go内置了一个gRPC插件，用户可以通过--go_out=plugins=grpc参数来生成gRPC相关代码
