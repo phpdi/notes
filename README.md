@@ -2,4 +2,4 @@
 
 hexo clean
 
-hexo depley
+hexo deploy

@@ -17,7 +17,7 @@
 - 技术博客：http://phpdi.github.io
 - Github：http://github.com/phpdi 
 - 期望职位：Go中级程序员
-- 期望薪资：税前月薪15k~20k，特别喜欢的公司可例外
+- 期望薪资：15k~20k
 - 期望城市：成都
 
 
@@ -59,40 +59,48 @@
 主要负责：
 * 完成用户,权限等基本逻辑
 * 使用加密方式与前端app进行通信
-* 采集用户数据，使用kafka消息进行解耦，异步入库，用于风控评估
+* 采集用户数据，利用rabbitmq消息队列，异步入库，用于风控评估
 * 用户借款相关逻辑
+* 借助第三方OCR实现用户实名认证，提取身份证信息
 * 完成相关的与第三交互的模块,支付,短信
 
-> 技术涉及: go、mysql、jwt、kafka消息系统、加密通信
+> 技术涉及: go、mysql、jwt、rabbitmq、加密通信
 
 
 #### 房屋租赁平台 
-该项目采用微服务的架构模式,底层由不同的模块组成,应用端包括三个端,房东端,租客端,运营管理平台.
+该项目采用http版微服务的架构模式,由不同服务模块提供http服务供客户端调用  
+应用端包括三个端,房东端,租客端,运营管理平台.
 
 主要负责：
-* 设计完成用户模块
-* 完成底层模块交互数据的机制,token模块
-* 房源管理模块
-* 使用Elasticsearch实现房源搜索功能
+* 设计完成账务模块,用于房东查看账单
+* 设计完成合同模块,借助第三方生成合同，房东，租客完成线上签约
+* 租客银行卡模块，利用银行卡认证用户，以及绑卡扣款
+* 房源模块
+    * 房源入库
+    * 房源带看
+    * 房源交割
+    * 房源查询功能 (使用elasticsearch实现)
+    * 房源与用户距离(redis计算地理位置)
 
-> 技术涉及: go、mysql、redis、docker、grpc、elasticsearch
-
+> 技术涉及: go、mysql、redis、docker、elasticsearch、微信公众号
 ### 成都娇子兴业实业有限公司 （ 2016年3月 ~ 2017年5月 ）
 
 #### 领呗商城项目
 娇子旗下，佣金电商项目，公司与各个代理店，以及各商家合作，赠与用户领购币，用户到各商家消费时，可用领购币，进行消费，领购币由各代理店或商家赠出，可充值，可提现，引导用户使用领购币，代替现金交易。
 
 主要负责：
-* 使用Elasticsearch实现商品搜索
-* 商品管理模块
-* 后台用户管理模块
-* 权限模块
-* 分期付款模块
-* 秒杀商品模块
+* 设计完成商品分类模块，支持无限级分类
+* 众筹模块
+* 商品管理模块，SKU
+* Elasticsearch 搜索
+    * 关键词搜索
+    * 分面搜索
+    * 同义词搜索
+    * 推荐相似商品
+* 秒杀模块
+* 即时通讯（客服系统）
 
-> 技术涉及: php、mysql、redis、elasticsearch
-
-
+> 技术涉及: go、mysql、redis、elasticsearch、websocket
 #### 娇子基金公众号项目
 类似于水滴互助，用户通过公众号加入后台发布的计划。如果有人患上癌症，加入计划的人会进行均摊一些医疗费用。
 
@@ -110,9 +118,9 @@
 
 ### 技术文章
 
-- [如何利用nginx进行自动化负载均衡](http://get.jobdeer.com/706.get)
-- [快速认识Git](http://get.jobdeer.com/343.get) 
-- [gomod](http://get.jobdeer.com/343.get) 
+- [如何利用nginx进行自动化负载均衡](https://phpdi.github.io/2020/04/01/nginx/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/)
+- [快速认识Git](https://phpdi.github.io/2020/04/01/git/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86Git/) 
+- [gomod](https://phpdi.github.io/2020/04/01/go/gomod/) 
 
 
 
@@ -122,8 +130,9 @@
 - 开发环境：Linux
 - Web开发：Go/PHP
 - Web框架：Gin/Beego/Laravel/Yii/ThinkPHP
-- 数据库相关：MySQL/PDO/SQLite/Redis/Memcache
-- 版本管理、文档和自动化部署工具：Svn/Git/eoLinker/Composer/Gomod
+- 数据库相关：MySQL/SQLite/Redis/Memcache/Elasticsearch
+- 消息队列：Kafka/Rabbitmq
+- 版本管理、文档和自动化部署工具：Git/Svn/eoLinker/Composer/Gomod
 - 容器相关：Docker/docker-compose/docker-swarm
 - 微服务相关: Etcd/Grpc/Go-micro
 - 单元测试：PHPUnit/GoTest
