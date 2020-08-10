@@ -1,6 +1,3 @@
-
-
-
 ## 联系方式
 
 - 手机：18408248122 
@@ -19,8 +16,6 @@
 - 期望职位：Go中级程序员
 - 期望薪资：15k~20k
 - 期望城市：成都
-
-
 
 
 ## 工作经历
@@ -128,14 +123,14 @@
 以下均为我熟练使用的技能
 
 - 开发环境：Linux
-- Web开发：Go/PHP
-- Web框架：Gin/Beego/Laravel/Yii/ThinkPHP
+- 语言：Go/PHP
+- 框架：Gin/Beego/Laravel/Yii/ThinkPHP
 - 数据库相关：MySQL/SQLite/Redis/Memcache/Elasticsearch
 - 消息队列：Kafka/Rabbitmq
 - 版本管理、文档和自动化部署工具：Git/Svn/eoLinker/Composer/Gomod
 - 容器相关：Docker/docker-compose/docker-swarm
 - 微服务相关: Etcd/Grpc/Go-micro
-- 单元测试：PHPUnit/GoTest
+- 单元测试：GoTest/PHPUnit
 - 开放平台：微信应用开发
 
 
