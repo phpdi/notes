@@ -234,3 +234,15 @@ docker run -d  -p 2379:2379 -p 2380:2380 --name etcd quay.io/coreos/etcd /usr/lo
 ```
 nohup ./lwyfront >/dev/null 2>log &
 ```
+
+## Ubuntu 默认执行环境dash => bash
+```
+sudo dpkg-reconfigure dash #选否
+ll /bin/sh #查看
+```
+
+## sshpass 
+ssh 命令行带密码登录
+```
+sshpass -p "XXX" ssh user@IP
+```
