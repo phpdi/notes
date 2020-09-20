@@ -12,10 +12,10 @@ http://www.ubuntuchrome.com/
 
 #### 脚本安装
 ```bash
-sudo wget https://repo.fdzh.org/chrome/google-chrome.list -P /etc/apt/sources.list.d/ &&
-wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add - &&
-sudo apt-get update &&
-sudo apt-get install google-chrome-stable
+sudo wget http://www.linuxidc.com/files/repo/google-chrome.list -P /etc/apt/sources.list.d/
+wget -q -O - https://dl.google.com/linux/linux_signing_key.pub  | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install -y google-chrome-stable
 ```
 <!--more-->
 
@@ -119,6 +119,8 @@ sudo tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz
 sudo vim  ~/.profile
 export PATH=$PATH:/usr/local/go/bin
 export GOROOT=/usr/local/go
+export GO111MODULE=on
+export GOPROXY=https://goproxy.cn
 
 source ~/.profile
 ```
