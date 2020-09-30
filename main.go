@@ -1,6 +1,9 @@
 package main
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 func AsyncCall(t int) <-chan int {
 	c := make(chan int, 1)
@@ -25,16 +28,16 @@ func AsyncCall2(t int) <-chan int {
 }
 
 func main() {
-	c1 := AsyncCall(50)
-	c2 := AsyncCall(200)
-	c3 := AsyncCall2(3000)
-	select {
-	case resp := <-c1:
-		println(resp)
-	case resp := <-c2:
-		println(resp)
-	case resp := <-c3:
-		println(resp)
 
+	s:=AA()
+
+	if ss,ok:=s.(int); ok {
+		fmt.Println(ss)
 	}
+	fmt.Println(s)
+}
+
+func AA() interface{} {
+
+	return "string"
 }

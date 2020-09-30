@@ -248,3 +248,11 @@ ssh 命令行带密码登录
 ```
 sshpass -p "XXX" ssh user@IP
 ```
+
+## 安装nps 内网穿透
+1. 安装内网穿透服务端
+```
+mkdir /usr/local/nps && /usr/local/nps  && wget https://github.com/ehang-io/nps/releases/download/v0.26.8/linux_amd64_server.tar.gz
+tar -zxf linux_amd64_server.tar.gz
+
+```
