@@ -1,10 +1,11 @@
-
 ---
 categories: 
-- etcd
+- docker
 tags:
-- etcd搭建
+- docker-install-ware
+- etcd
 ---
+# docker安装ectd 
 
 ## etcd 启动参数说明
 * -name：方便理解的节点名称，默认为 default，在集群中应该保持唯一，可以使用 hostname

@@ -45,7 +45,7 @@ sudo n stable #安装官方稳定版本
 ```bash
 sudo apt-get install composer 
 
- composer config -g repo.packagist composer https://packagist.laravel-china.org #laravel-china 社区镜像
+composer config -g repo.packagist composer https://packagist.laravel-china.org #laravel-china 社区镜像
 ```
 
 ### lnmp
@@ -188,71 +188,15 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 
 ```
 
-#### mysql 
-```
-docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
-```
 #### mysql-workbench
 ```
 sudo apt-get install mysql-workbench
 ```
-#### redis
 
-```
-docker run --name redis -p 6379:6379 -d --restart=always -v /usr/local/docker/redis/redis.conf:/etc/redis/redis.conf  redis:latest redis-server /etc/redis/redis.conf --appendonly yes --requirepass "123456"
-docker run --name redis -p 6380:6379 -d --restart=always -v /usr/local/docker/redis/redis-slave.conf:/etc/redis/redis.conf  redis:latest redis-server /etc/redis/redis.conf --appendonly yes --requirepass "123456"
-
-# appendonly 是否开启数据持久化
-# requirepass 用户名密码
-```
-#### consul
-```
-docker run --name consul -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 -p 8600:8600 consul agent -server -bootstrap-expect 1 -ui -bind=0.0.0.0 -client=0.0.0.0
-
-8500 http 端口，用于 http 接口和 web ui
-8300 server rpc 端口，同一数据中心 consul server 之间通过该端口通信
-8301 serf lan 端口，同一数据中心 consul client 通过该端口通信
-8302 serf wan 端口，不同数据中心 consul server 通过该端口通信
-8600 dns 端口，用于服务发现
--bbostrap-expect 2: 集群至少两台服务器，才能选举集群leader
--ui：运行 web 控制台
--bind： 监听网口，0.0.0.0 表示所有网口，如果不指定默认为127.0.0.1，则无法和容器通信
--client ： 限制某些网口可以访问
-
-```
-#### kafak
-```
-docker run -p 2181:2181 -p 9092:9092 --env ADVERTISED_HOST=192.168.11.36 --env ADVERTISED_PORT=9092 -d spotify/kafka
-```
-
-#### etcd
-```
-# 单节点
-docker run -d  -p 2379:2379 -p 2380:2380 --name etcd quay.io/coreos/etcd /usr/local/bin/etcd -name qf2200-client0  -advertise-client-urls http://0.0.0.0:2379 -listen-client-urls http://0.0.0.0:2379
-
-```
-
-## nohup
-```
-nohup ./lwyfront >/dev/null 2>log &
-```
-
-## Ubuntu 默认执行环境dash => bash
-```
-sudo dpkg-reconfigure dash #选否
-ll /bin/sh #查看
-```
-
-## sshpass 
-ssh 命令行带密码登录
-```
-sshpass -p "XXX" ssh user@IP
-```
 
 ## 安装nps 内网穿透
 1. 安装内网穿透服务端
 ```
 mkdir /usr/local/nps && /usr/local/nps  && wget https://github.com/ehang-io/nps/releases/download/v0.26.8/linux_amd64_server.tar.gz
 tar -zxf linux_amd64_server.tar.gz
-
 ```

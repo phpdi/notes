@@ -4,7 +4,8 @@ import "fmt"
 
 func main() {
 
-	test()
+	fmt.Println(64 << 10)
+	fmt.Println(2 << 1)
 
 }
 
