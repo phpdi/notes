@@ -87,6 +87,19 @@ git pull --allow-unrelated-histories 忽略版本不同造成的影响
 git clone git@server-name:path/repo-name.git
 ```
 
+
+#### git配置过程中fatal:拒绝合并无关的历史
+```
+首先将远程仓库和本地仓库关联起来：
+
+git branch --set-upstream-to=origin/master master
+
+然后使用git pull整合远程仓库和本地仓库，
+
+git pull --allow-unrelated-histories    (忽略版本不同造成的影响)
+
+```
+
 ### 分支合并策略
 通常，合并分支时，如果可能，Git会用Fast forward模式，但这种模式下，删除分支后，会丢掉分支信息。
 
