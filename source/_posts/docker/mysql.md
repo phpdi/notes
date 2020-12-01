@@ -12,3 +12,5 @@ tags:
 ```
 docker run -it -d -p 3306:3306 --name docker_mysql -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql 
 ```
+
+docker run -it -d -p 33063:3306 --name mysql5.6.47-1 -e MYSQL_ROOT_PASSWORD=123456  --restart=always  mysql:5.6.47 

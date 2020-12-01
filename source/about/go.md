@@ -10,9 +10,8 @@
 
 - 陈誉/男/1994 
 - 本科/西华大学建筑系 
-- 工作年限：4年
-- 技术博客：http://phpdi.github.io
-- Github：http://github.com/phpdi 
+- 工作年限：4年  
+- 技术博客：https://phpdi.github.io/
 - 期望职位：Go中级程序员
 - 期望薪资：15k~20k
 - 期望城市：成都
@@ -33,17 +32,14 @@
 * 编写grcp服务端，实现api到机房代理端反向代理，避免机房暴露端口问题
 * 搭建redis集群服务，保证缓存系统的可用性
 
-> 技术涉及: go、mysql主从同步、redis集群、自动负载均衡、grpc、kafka、docker
 
 #### 文件存储系统
-此系统实现的目的是为领沃云控制台上传文件功能提供单独的服务
+由于领沃云有多个子项目，此文件系统的实现的目的是为领沃项目提供独立的服务，便于文件的集中管理
 
 整个系统的实现,其中包括：
-* 基于Hash计算实现秒传
-* 用户系统，使用jwt认证用户
-* 实现分块上传及断点续传 
-
-> 技术涉及: go、mysql、redis
+* 优化上传速度，利用Hash算法计算文件hash值，实现秒传
+* 对大文件实现分块上传及断点续传，利用redis保存上传信息，实现上传进度条功能 
+* 设计系统api签名验签算法以及防重复提交，保证文件系统的安全性
 
  
 ### 深圳融信通金融服务有限公司 （ 2017年6月 ~ 2018年11月 ）
@@ -52,14 +48,15 @@
 印尼现金贷是面向印尼的贷款项目,主要实现用户借款与还款的业务.
 
 主要负责：
-* 完成用户,权限等基本逻辑
-* 使用加密方式与前端app进行通信
+* 设计i18n翻译模块，编写中文扫描工具，极大提升工作效率
+* 实现易于扩展的api格式验证器，解决了控制器的因数据格式验证而导致的代码臃肿
+* 引入swagger,替换项目老旧的word文档格式。
+* 设计与app通信的加密方式，防止数据劫持 使用加密方式与前端app进行通信
 * 采集用户数据，利用rabbitmq消息队列，异步入库，用于风控评估
 * 用户借款相关逻辑
 * 借助第三方OCR实现用户实名认证，提取身份证信息
 * 完成相关的与第三交互的模块,支付,短信
 
-> 技术涉及: go、mysql、jwt、rabbitmq、加密通信
 
 
 #### 房屋租赁平台 
@@ -108,21 +105,11 @@
 > 技术涉及: php、mysql、memcache、js、css、html
 
 
-### 开源项目
- - [swooleAutoRestart](https://github.com/phpdi/swoole-auto-restart)
-
-### 技术文章
-
-- [如何利用nginx进行自动化负载均衡](https://phpdi.github.io/2020/04/01/nginx/%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8nginx%E8%BF%9B%E8%A1%8C%E8%87%AA%E5%8A%A8%E5%8C%96%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1/)
-- [快速认识Git](https://phpdi.github.io/2020/04/01/git/%E5%BF%AB%E9%80%9F%E8%AE%A4%E8%AF%86Git/) 
-- [gomod](https://phpdi.github.io/2020/04/01/go/gomod/) 
-
-
 
 ## 技能清单
 以下均为我熟练使用的技能
 
-- 开发环境：Linux
+- 开发环境：Linux(从开始编程到现在都是使用的linux作为自己的开发环境，所以我对linux还是比较熟悉的)
 - 语言：Go/PHP
 - 框架：Gin/Beego/Laravel/Yii/ThinkPHP
 - 数据库相关：MySQL/SQLite/Redis/Memcache/Elasticsearch
@@ -132,6 +119,7 @@
 - 微服务相关: Etcd/Grpc/Go-micro
 - 单元测试：GoTest/PHPUnit
 - 开放平台：微信应用开发
+- 外语：大学英语四级，能流畅阅读英文文档
 
 
 ## 致谢
