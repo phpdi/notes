@@ -1,3 +1,8 @@
-# 面试要点
+---
+categories: 
+- redis
+tags:
+- redis面试题
+---
 
-## memcache
+<!--more-->
