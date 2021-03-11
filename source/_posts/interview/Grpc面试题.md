@@ -1,6 +1,6 @@
 ---
 categories: 
-- redis
+- grpc
 tags:
 - grpc面试题
 ---
