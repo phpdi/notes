@@ -108,7 +108,8 @@ sudo apt install jmeter
 安装 Gnome Shell 插件：TopIcons Plus
 
 ### golang 环境安装
-1.到[官网](https://golang.org/dl/)下载最新的golang包，需要翻墙
+1.到[https://golang.org/dl/](https://golang.org/dl/)下载最新的golang包，需要翻墙
+2. 国内下载地址[https://studygolang.com/dl](https://studygolang.com/dl)
 
 2.将包解压到/usr/local下
 ```bash
@@ -190,7 +191,11 @@ base=https://github.com/docker/machine/releases/download/v0.16.0 &&
 
 #### mysql-workbench
 ```
+# ubuntu 20.04以下
 sudo apt-get install mysql-workbench
+
+# ubuntu 20.04以上
+https://linuxhint.com/installing_mysql_workbench_ubuntu/
 ```
 
 
