@@ -1,6 +1,6 @@
 ---
 categories: 
-- redis
+- interview
 tags:
 - redis面试题
 ---

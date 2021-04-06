@@ -1,6 +1,6 @@
 ---
 categories: 
-- redis
+- interview
 tags:
 - kafka面试题
 ---
