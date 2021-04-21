@@ -412,15 +412,26 @@ sentinel parallel-syncs mymaster 1
 sentinel failover-timeout mymaster 180000
 ```
 ## sentinel中的3个定时任务
+
 ### 每10秒每个sentinel对master和slave 执行info
 * 发现slave节点
 * 确认主从关系
+
 ### 每两秒每个sentinel通过master节点的channel交换信息（pub/sub）
 * 通过 _sentinel_:hello 频道交换信息
 * 交换对节点的“看法”和自身信息
 
 ### 每1秒每个sentinel对其他sentinel和redis进ping
 * 心跳检测，失败判定依据
+
+
+## 主观下线和客观下线
+
+### 主观下线
+在默认情况下，Sentinel会以每秒一次的频率向所有与它创建了命令连接的实例（主服务器、从服务器、其它Sentinel）发送ping命令，并通过相应的回复判断实例是否在线。  
+如果实例的相应时间超过down-after-milliseconds设置的时间（毫秒），或者响应无效，那么Sentinel会将此实例标记为 主观下线 状态
+
+
 
 ## 客户端连接
 
