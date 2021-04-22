@@ -431,7 +431,9 @@ sentinel failover-timeout mymaster 180000
 在默认情况下，Sentinel会以每秒一次的频率向所有与它创建了命令连接的实例（主服务器、从服务器、其它Sentinel）发送ping命令，并通过相应的回复判断实例是否在线。  
 如果实例的相应时间超过down-after-milliseconds设置的时间（毫秒），或者响应无效，那么Sentinel会将此实例标记为 主观下线 状态
 
-
+### 客观下线
+当Sentinel将一个Master判断为主观下线之后，为了确定这个Master是否真的下线了，它会向同样监视这个Master的其它Sentinel进行询问，看它们是否也认为Master已经进入下线状态（可以是主观下线也可以是客观下线）。
+当Sentinel从其它Sentinel那里接收到足够数量的已下线判断之后，Sentinel就会将从服务器判断为客观下线，并对主服务器执行故障转移。
 
 ## 客户端连接
 
