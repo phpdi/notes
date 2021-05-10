@@ -1,6 +1,6 @@
 ---
 categories: 
-- mysql
+- interview
 tags:
 - 面试题
 ---

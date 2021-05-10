@@ -1,6 +1,6 @@
 ---
 categories: 
-- nginx
+- interview
 tags:
 - nginx面试题
 ---

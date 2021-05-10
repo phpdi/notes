@@ -1,6 +1,6 @@
 ---
 categories: 
-- rabbitmq
+- interview
 tags:
 - rabbitmq面试题
 ---

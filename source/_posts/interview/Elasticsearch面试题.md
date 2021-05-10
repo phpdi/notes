@@ -1,6 +1,6 @@
 ---
 categories: 
-- elasticsearch
+- interview
 tags:
 - elasticsearch面试题
 ---
