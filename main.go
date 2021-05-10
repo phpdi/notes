@@ -11,10 +11,75 @@ import (
 
 
 
+/*
+
+占位符是${},解析字符串，比如
+1.${a}=${b} 解析后得出a=b
+2.${a}=${b\} 解析后得出a=${b}
+3.${a\}=${b} 解析后得出${a}=b
+4.${a\}=${b\} 解析后得出${a}=${b}
+5.$${a}=${b} 解析后得出$a=b
+6.$${a}=${b}} 解析后得出$a=b}
+要求，不用正则表达式，不准用split之类的函数，请遍历字符串。
+
+*/
 
 func main() {
-	httpClient()
+
+
+	var out string
+	out=parse("${a}=${b}")
+	fmt.Println(out)
+
+	out=parse("${a}=${b\\}")
+	fmt.Println(out)
+
+	out=parse("${a\\}=${b}")
+	fmt.Println(out)
+
+	out=parse("${a\\}=${b\\} ")
+	fmt.Println(out)
+
+	out=parse("$${a}=${b}")
+	fmt.Println(out)
+
+	out=parse("$${a}=${b}}")
+	fmt.Println(out)
+
 }
+
+func parse(in string) (out string) {
+
+	l:=len(in)
+	A: for i:=0;i<l;i++ {
+		next:=i+1
+		if string(in[i])=="$" && string(in[next])== "{" {
+			end:=next+1
+			for end<l{
+				if string(in[end]) == "}" {
+
+					//转义情况
+					if string(in[end-1]) == "\\" {
+						out+=in[i:end-1]+"}"
+					}else{
+						out+=in[next+1:end]
+					}
+
+					i=end
+					continue A
+				}
+				end++
+			}
+		}
+
+		out+=in[i:next]
+
+	}
+
+	return
+}
+
+
 
 func HttpServer()  {
 	mux:=http.DefaultServeMux
