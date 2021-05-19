@@ -6,6 +6,9 @@ import (
 	"io/ioutil"
 	"net/http"
 	"net/http/cookiejar"
+	"os"
+	"strings"
+	"text/tabwriter"
 	"time"
 )
 
@@ -25,26 +28,20 @@ import (
 */
 
 func main() {
+	fmtEnv()
 
 
-	var out string
-	out=parse("${a}=${b}")
-	fmt.Println(out)
+}
 
-	out=parse("${a}=${b\\}")
-	fmt.Println(out)
+func fmtEnv()  {
+	envParams:=`PROFILE=KS;SERVICE=pricing-manager;TZ=UTC;BEATFLOW_ENABLED_FEATURE_IGNORE_AUTHORITIES=true;BEATFLOW_KS_MYSQL_HOST=103.61.39.4;BEATFLOW_KS_MYSQL_PORT=13306;BEATFLOW_KS_MYSQL_DATABASE=pricing;BEATFLOW_KS_MYSQL_PASSWORD=p@ss52Dnb;BEATFLOW_DEV_MYSQL_HOST=103.61.39.4;BEATFLOW_DEV_MYSQL_PORT=23306;BEATFLOW_DEV_MYSQL_DATABASE=pricing;BEATFLOW_DEV_MYSQL_PASSWORD=p@ss52Dnb;BEATFLOW_KS_REDIS_ENABLE=true;BEATFLOW_KS_REDIS_URL=103.61.39.4:16000;BEATFLOW_DEV_REDIS_ENABLE=true;BEATFLOW_DEV_REDIS_URL=103.61.39.4:26839`
+	s:=strings.Split(envParams,";")
+	for _,v:=range s {
+		ss:=strings.Split(v,"=")
+		fmt.Printf("export %s=%s \n",ss[0],ss[1])
+	}
 
-	out=parse("${a\\}=${b}")
-	fmt.Println(out)
 
-	out=parse("${a\\}=${b\\} ")
-	fmt.Println(out)
-
-	out=parse("$${a}=${b}")
-	fmt.Println(out)
-
-	out=parse("$${a}=${b}}")
-	fmt.Println(out)
 
 }
 
@@ -77,6 +74,16 @@ func parse(in string) (out string) {
 	}
 
 	return
+}
+
+func writer()  {
+	w := tabwriter.NewWriter(os.Stderr, 3, 0, 3, ' ', tabwriter.TabIndent|tabwriter.Debug)
+
+	fmt.Fprintln(w, "a\tb\taligned\t")
+	fmt.Fprintln(w, "aa\tbb\taligned\t")
+	fmt.Fprintln(w, "aaa\tbbb\tunaligned") // no trailing tab
+	fmt.Fprintln(w, "aaaa\tbbbb\taligned\t")
+	w.Flush()
 }
 
 
