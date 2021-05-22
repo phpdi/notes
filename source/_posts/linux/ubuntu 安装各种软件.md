@@ -161,12 +161,12 @@ newgrp docker
 ```
 #### 更换docker远程镜像
 ```bash
-sudo vim /etc/docker/daemon.json
+cat /etc/docker/daemon.json <<EOF
 
 {
   "registry-mirrors": ["https://9lrfffi7.mirror.aliyuncs.com"]
 }
-
+EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 docker info
