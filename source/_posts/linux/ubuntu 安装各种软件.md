@@ -109,7 +109,7 @@ sudo apt install jmeter
 
 ### golang 环境安装
 1.到[https://golang.org/dl/](https://golang.org/dl/)下载最新的golang包，需要翻墙
-2. 国内下载地址[https://studygolang.com/dl](https://studygolang.com/dl)
+2. 国内下载地址[https://studygolang.com/dl](https://studygolang.com/dlhttps://studygolang.com/dl)
 
 2.将包解压到/usr/local下
 ```bash
@@ -161,12 +161,12 @@ newgrp docker
 ```
 #### 更换docker远程镜像
 ```bash
-sudo vim /etc/docker/daemon.json
+cat /etc/docker/daemon.json <<EOF
 
 {
   "registry-mirrors": ["https://9lrfffi7.mirror.aliyuncs.com"]
 }
-
+EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 docker info
