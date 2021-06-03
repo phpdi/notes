@@ -130,7 +130,7 @@ source ~/.profile
 ### protoc 安装
 1. 下载protoc包
 ```
-https://github.com/protocolbuffers/protobuf/releases/tag/v3.11.4
+https://github.com/protocolbuffers/protobuf/releases/tag/v3.17.1
 ```
 2. 解压
 ```
