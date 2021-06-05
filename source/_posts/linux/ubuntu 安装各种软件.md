@@ -118,7 +118,7 @@ sudo tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz
 3.将go执行命令放到环境变量中
 ```bash
 cat >> ~/.profile <<EOF
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:/usr/local/go/bin:/home/yu/go/bin
 export GOROOT=/usr/local/go
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
