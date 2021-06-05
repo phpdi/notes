@@ -117,11 +117,13 @@ sudo tar -C /usr/local -xzf go1.11.4.linux-amd64.tar.gz
 ```
 3.将go执行命令放到环境变量中
 ```bash
-sudo vim  ~/.profile
+cat >> ~/.profile <<EOF
 export PATH=$PATH:/usr/local/go/bin
 export GOROOT=/usr/local/go
 export GO111MODULE=on
 export GOPROXY=https://goproxy.cn
+EOF
+
 
 source ~/.profile
 ```
@@ -161,20 +163,24 @@ newgrp docker
 ```
 #### 更换docker远程镜像
 ```bash
-cat /etc/docker/daemon.json <<EOF
+cat >> /etc/docker/daemon.json <<EOF
 
 {
   "registry-mirrors": ["https://9lrfffi7.mirror.aliyuncs.com"]
 }
 EOF
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+sudo systemctl daemon-reload &&  sudo systemctl restart docker
 docker info
 ```
 
 #### docker-compose
 ```
-sudo curl -L --fail https://github.com/docker/compose/releases/download/1.23.1/run.sh -o /usr/local/bin/docker-compose
+# 方式1
+sudo curl -L --fail https://github.com/docker/compose/releases/download/1.29.2/run.sh -o /usr/local/bin/docker-compose
+
+# 方式1不好使，直接去https://github.com/docker/compose/releases/上下载 
+mv docker-compose-Linux-x86_64   /usr/local/bin/docker-compose
+
 sudo chmod +x /usr/local/bin/docker-compose
 docker-compose --version
 ```
@@ -196,6 +202,14 @@ sudo apt-get install mysql-workbench
 
 # ubuntu 20.04以上
 https://linuxhint.com/installing_mysql_workbench_ubuntu/
+
+
+sudo apt install ./mysql-apt-config_0.8.15-1_all.deb
+ok
+ok
+sudo apt update
+sudo apt install mysql-workbench-community
+
 ```
 
 
