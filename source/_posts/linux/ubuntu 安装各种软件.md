@@ -205,3 +205,13 @@ https://linuxhint.com/installing_mysql_workbench_ubuntu/
 mkdir /usr/local/nps && /usr/local/nps  && wget https://github.com/ehang-io/nps/releases/download/v0.26.8/linux_amd64_server.tar.gz
 tar -zxf linux_amd64_server.tar.gz
 ```
+
+## helm 
+```
+https://github.com/helm/helm/releases 
+
+tar -zxvf helm-v3.0.0-linux-amd64.tar.gz
+mv linux-amd64/helm /usr/local/bin/helm
+
+```
+
