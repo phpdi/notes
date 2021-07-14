@@ -17,10 +17,9 @@ Address: 10.96.0.1
 # 在kubeSphere 管理的k8s集群上搭建使用Prometheus Operator helm安装prometheus 起不来
 * kubeSphere 已经安装了prometheus ,并且每个节点已经装了node-exporter所以导致起不来
 * 目前我们只需要安装grafana就可以了
-* k8s集群中可以通过注解实现prometheus 自动发现采集器 具体配置如下: 
-```
+* Prometheus Operator 通过service monitor 添加监控节点。
 
-
-```
-
-# headless
+# k8s服务中headless 和 Cluster IP 区别
+headless 模式通过CoreDNS 解析到pod上面不走service的负载均衡  
+因为通过coredns ，pod起来后，并不能立即访问到会有延迟  
+clusterIp 模式，访问service 的clusterIp 再通过iptables 转发到pod上面，pod起来后可以直接访问，不会有延迟。  
